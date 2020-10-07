@@ -1,0 +1,9 @@
+a:hover
+{
+	background: yellow;
+}
+
+p:first-letter
+{
+	font-size: 300%;
+}

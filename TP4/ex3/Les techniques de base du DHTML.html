@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    <head> 
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" />
+        <title>Les techniques de base du DHTML</title>
+		
+		<script  type="text/javascript">
+		<!--
+			On= new Image(100,100)
+			On.src="images/tp4-button-on.gif";
+			Off= new Image(100,100)
+			Off.src="images/tp4-button-off.gif";
+			
+			function opClasse (classe)
+			{ 
+				switch (classe)
+				{ 
+			  		case "1" : 
+						document.qRepas.className="visible"; 
+					   	break; 
+					case "2" : 
+					   	document.qRepas.className="cache"; 
+					   	document.qRepas.repas.checked=false; 
+					   	break;
+				} 
+			}
+			
+			var laFiche = " ";
+			 
+			function afficher(uneFiche) 
+			{ 
+			 	eval ("document.getElementById('" + laFiche + "').className = 'ficheArr'"); 
+			 	eval ("document.getElementById('" + uneFiche + "').className = 'ficheAvt'"); 
+			 	laFiche = uneFiche;
+			}
+			
+			var active = false; 
+			
+			function avancer()
+			{ 
+				document.getElementById("bloc").style.left = (parseInt(document.getElementById("bloc").style.left) + 2) + "px"; 
+			}
+			
+			var x = 0;
+			var y = 0;
+
+			if (document.getElementById)
+			{
+			  	if(navigator.appName.substring(0,3) == "Net")
+			    	document.captureEvents(Event.MOUSEMOVE);
+			   	document.onmousemove = Pos_Souris;
+			   	window.onload = Bouge_Image;
+			}
+			
+			function Pos_Souris(e)
+			{
+			 	x = (navigator.appName.substring(0,3) == "Net") ? e.pageX : event.x+document.body.scrollLeft;
+			   	y = (navigator.appName.substring(0,3) == "Net") ? e.pageY : event.y+document.body.scrollTop;
+			}
+			
+			posX = 0;
+			posY = 0;
+			anim = false;
+			oldpos="";
+			
+			function boutonPresse()
+			{ 
+			  	anim= true;
+			  	Bouge_Image();
+			} 
+			 
+			function boutonRelache()
+			{ 
+			  	anim= false; 
+			}
+			
+			function Bouge_Image()
+			{
+			   	if (document.getElementById && anim)
+			  	{
+			      	posX = posX+(x-posX)/15;
+			      	posY = posY+(y-posY)/15;
+			      	newpos="";
+				  	if(newpos!=oldpos)
+				  	{
+						document.bloc2=newpos;
+						oldpos=newpos;
+					}
+			      	document.getElementById("bloc2").style.top = posY+"px";
+			      	document.getElementById("bloc2").style.left = posX+"px";
+			      	tempo = setTimeout("Bouge_Image()",15)
+			  	}
+			}
+						 
+			-->
+		</script>
+		
+        <style type="text/css"> 
+                .objet
+                {
+                    background:black;
+                    color:white;
+                }
+                .visible 
+                { 
+                	visibility: visible;
+                	color: red; 
+                } 
+ 				.cache
+ 				{
+ 					visibility: hidden;
+ 				} 
+ 				code
+ 				{ 
+ 					background-color: yellow;
+ 				}
+				.onglet 
+				{
+					position: absolute;
+					width: 50px;
+					height: 20px;
+					top: 420px;
+				} 
+ 				#fx1
+ 				{
+ 					background-color: #ffdddd;
+ 				} 
+ 				#fx2
+ 				{
+ 					background-color: #ddffdd;
+ 				} 
+ 				#fx3
+ 				{
+ 					background-color: #ddddff;
+ 				} 
+ 				.ficheArr
+ 				{
+ 					position: absolute;
+ 					width: 200px;
+ 					height: 200px;  
+     				top: 440px; 
+     				left: 50px; 
+     				visibility: hidden;
+     			} 
+ 				.ficheAvt
+ 				{
+ 					position: absolute; 
+ 					width: 200px;
+ 					height: 200px;  
+                   	top: 440px;
+                   	left: 50px; 
+                   	visibility: visible;
+             	} 
+ 				#f1
+ 				{
+ 					background-color: #ffdddd;
+ 				} 
+ 				#f2
+ 				{
+ 					background-color: #ddffdd;
+ 				} 
+ 				#f3 
+ 				{
+ 					background-color: #ddddff;
+ 				}
+ 				#bloc
+ 				{
+ 					font-family: Arial;
+ 					font-size: 14pt;
+ 					text-align: center; 
+          			background-color: #ff0000;
+          			width: 80px;
+          			height: 20px;
+        			position: absolute; 
+        			top: 710px;
+        		}
+        		#bloc2
+ 				{
+ 					font-family: Arial;
+ 					font-size: 14pt;
+ 					text-align: center; 
+          			background-color: #ff0000;
+          			width: 80px;
+          			height: 20px;
+        			position: absolute; 
+        			top: 760px;
+        		}
+        </style>
+        
+    </head> 
+    
+    <body onLoad="laFiche='f1'; afficher('f1')"> 
+         
+        <h4 class="objet">Effet de survol</h4>
+       
+	        <div>
+				<img src="images/tp4-button-on.gif" onMouseover="this.src=Off.src" onMouseout="this.src=On.src" />
+			</div>
+			
+		<h4 class="objet">Faire appara&icirc;tre ou dispara&icirc;tre</h4>
+		
+		<h4>Paragrphe invisible</h4>
+
+			<a href="javascript:void(0)" onMouseover="document.getElementById('rep').className='visible'" onMouseout="document.getElementById('rep').className='cache'">Voir le paragraphe</a> 
+			<p id="rep" class="cache">
+				Ce paragraphe n'est pr&eacute;sent dans la restitution du document
+				que si sa classe est <code>visible</code><br>
+				Si sa classe est <code>cache</code>, on ne le voit plus !
+			</p> 
+       
+       	<h4>Choix invisible MAJ</h4>
+
+       		<form name="choixClasse"> 
+				<input type="radio" name="classe" value="1" onClick=opClasse("1")>premi&egrave;re classe<br /> 
+			 	<input type="radio" name="classe" value="2" onClick=opClasse("2")>seconde classe<br /> 
+			</form>
+			 
+			<form name="qRepas" class="cache" style="position: absolute; top:8.5cm; left:4cm"> 
+				<input type="checkbox" name="repas" value="oui">r&eacute;servation repas
+			</form>
+			
+		<h4 class="objet">Empilements</h4>
+		
+			<!-- creation des onglets --> 
+			<b> 
+				<div id="fx1" class="onglet" style="left: 50px" onMouseOver="afficher('f1')"> 
+			  	 	<center>fiche1</center> 
+				</div> 
+				<div id="fx2" class="onglet" style="left: 100px" onMouseOver="afficher('f2')"> 
+				  	<center>fiche2</center> 
+				</div> 
+				<div id="fx3" class="onglet" style="left: 150px" onMouseOver="afficher('f3')"> 
+				   	<center>fiche3</center> 
+				</div>
+			</b> 
+			
+			<!-- creation des fiches --> 
+			<div id="f1" class="ficheArr"> 
+			 	<p>
+			   		ceci est la fiche 1<br />
+			   		elle pourrait contenir une image
+			   	</p>
+			</div> 
+			<div id="f3" class="ficheArr"> 
+			   	<p>
+			   		et enfin la fiche 3<br />
+			   		qui pourrait recevoir une applet Java
+			   	</p>
+			</div> 
+			<div id="f2" class="ficheArr"> 
+			   	<p>
+			   		la fiche  2<br />
+			   		pourrait &ecirc;tre un formulaire
+			   	</p> 
+			</div>
+			
+			<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+       	<h4 class="objet">Animation de calques</h4>
+
+			<div id="bloc" style="left: 60px" onMouseDown="active=true; avancer()" onMouseUp="active=false"> 
+			    Click 
+			</div> 
+		
+	
+			<div id="bloc2" style="top:760px; left: 60px;" onMouseDown="boutonPresse()" onMouseUp="boutonRelache()"> 
+	  			Mouse 
+	 		</div>
+	 		
+	 		<br /><br /><br /><br /><br />
+
+
+        <p>
+            <a href="../index.html">Top</a><br/>
+        </p>
+        
+        <hr/>
+        
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer">
+                <img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict"/>
+            </a>
+        
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valide !" />
+            </a>
+        </p> 
+        
+    </body>
+</html> 

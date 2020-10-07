@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    <head> 
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" />
+        <title>Un exemple simple de programmation par objets</title>
+
+        
+        <script type="text/javascript">
+        <!--
+         
+        function Matrice(nom, taille)
+        { 
+            this.nom = nom; 
+            this.taille = taille;
+            this.ch1= ch1; 
+            this.ch2= ch2; 
+            this.ch3= ch3; 
+            this.ch4= ch4;
+        }
+        
+        function Calculer(M1, M2, Titre, Largeur, Hauteur)
+   		{  
+            var htmlpage= " "; 
+            var win_opt= "toolbar=0,location=0,directories=0,status=0,menubar=0,";
+            win_opt += "scrollbars=0,resizable=0,copyhistory=0,"; 
+           	win_opt += "width=" + Largeur + ",height=" + Hauteur;
+ 
+            // Creation de la fenetre 
+            NewWindow= window.open(" ","Titre",win_opt); 
+            
+            // Generation du contenu de la page 
+            NewWindow.document.open();
+   
+            htmlpage += "<html><head><title>" + Titre + "</title></head><body>";
+            htmlpage += "<form action='' id='Matrice C' style='background-color:red; width:2.8cm;' ><p>";
+            htmlpage += "<input style='margin-left:5px; margin-top:5px; width:1cm;' value='" + M1.ch1.value + "' />";
+            htmlpage += "<input style='margin-left:5px; margin-top:5px; width:1cm;' />";
+            htmlpage += "<br/>";
+            htmlpage += "<input style='margin-left:5px; margin-bottom:5px; margin-top:5px; width:1cm;' />";
+            htmlpage += "<input style='margin-left:5px; margin-bottom:5px; margin-top:5px; width:1cm;' />";
+            htmlpage += "</p>";
+            htmlpage += "</form>";
+            
+            htmlpage += "<hr><form>";
+        
+            htmlpage += "<input type='button' value=' Close ' onClick='window.close()'>";
+            htmlpage += "</form>"; 
+            htmlpage += "</center>";
+            htmlpage += "</body></html>"; 
+            
+            NewWindow.document.write(htmlpage); 
+            
+            NewWindow.document.close();
+        }
+
+        var Mat1= new Matrice(A, 2);
+        var Mat2= new Matrice(B, 2);
+        
+        -->
+        </script>
+
+        
+        <style type="text/css"> 
+                .objet
+                {
+                    background:black;
+                    color:white;
+                }
+        </style>
+        
+    </head> 
+    
+    <body> 
+ 
+        <h4 class="objet">Les Matrices</h4>
+        
+        <h4> Matrice A </h4>
+        
+        <form action="" id="Matrice A" style="background-color:red; width:2.8cm;" > 
+        
+            <p>
+                <input style="margin-left:5px; margin-top:5px; width:1cm;"onchange="Mat1.ch1= this.value;" />
+                <input style="margin-left:5px; margin-top:5px; width:1cm;"onchange="Mat1.ch2= this.value;" />
+                <br/>
+                <input style="margin-left:5px; margin-bottom:5px; margin-top:5px; width:1cm;"onchange="Mat1.ch3= this.value;" />
+                <input style="margin-left:5px; margin-bottom:5px; margin-top:5px; width:1cm;"onchange="Mat1.ch4= this.value;" />
+            </p>
+            
+        </form>
+        
+        <h4> Matrice B </h4>
+        
+        <form action="" id="Matrice B" style="background-color:yellow; width:2.8cm;" > 
+        
+            <p>
+                <input style="margin-left:5px; margin-top:5px; width:1cm;"onchange="Mat2.ch1= this.value;" />
+                <input style="margin-left:5px; margin-top:5px; width:1cm;"onchange="Mat2.ch2= this.value;" />
+                <br/>
+                <input style="margin-left:5px; margin-bottom:5px; margin-top:5px; width:1cm;"onchange="Mat2.ch3= this.value;" />
+                <input style="margin-left:5px; margin-bottom:5px; margin-top:5px; width:1cm;"onchange="Mat2.ch4= this.value;" />
+            </p>
+            
+        </form>
+        
+        
+        
+        <h4> Produit de deux matrice </h4>
+        
+        <form action="" id="Math" style="width:2.8cm;" > 
+          <input type="button" value="Produit" onclick="Calculer(Mat1, Mat2, 'Matrice C', 300, 330);"></input>
+            
+        </form> 
+      
+        <p>
+            <a href="../index.html">Top</a><br/>
+        </p>
+        
+        <hr/>
+        
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer">
+                <img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict"/>
+            </a>
+        
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valide !" />
+            </a>
+        </p> 
+        
+    </body>
+</html> 

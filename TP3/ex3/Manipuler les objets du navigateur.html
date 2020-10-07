@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    <head> 
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" />
+        <title>Manipuler les objets du navigateur</title>
+
+        
+        <script type="text/javascript">
+         <!--
+         
+            // cette fonction parcourt les propriétés d’un objet  
+            // et affiche leurs valeurs respectives 
+            
+            function show_props(obj, obj_name)
+            { 
+                var result= "", i= ""; 
+                result += "<select>";
+                for ( i in obj) 
+                    result += "<option value= " + obj[i] + ">" + obj_name + "." + i + " = " + obj[i] + " </option>"; 
+                result += "</select>";
+                return result;
+            } 
+            
+        -->
+        </script>
+        
+        <script type="text/javascript" xml:space="preserve">
+         <!--
+
+            var position=0; 
+            
+            function derouler()
+            { 
+                var i, k, message = msg = " Bienvenue sur ma page web " 
+     
+                // augmenter msg 
+     
+                if (msg.length >= 77) k=1; 
+                else k = (77/msg.length)+1; 
+    
+                for (i=0; i<k; i++) msg += " " + msg; 
+    
+                // afficher msg 
+     
+                window.status = msg.substring(position, position+77); 
+     
+                // nouvelle position 
+    
+                if (position++ == message.length) position = 0; 
+    
+                // repeter toutes les 120 millisecondes 
+    
+                setTimeout("derouler()",120) ; 
+            }
+            
+        -->
+        </script>
+        
+        <script type="text/javascript" xml:space="preserve">
+         <!--
+
+            function dateFrancaise (uneDate)
+            { 
+                var vjour = "Dimanche" + "Lundi   " + "Mardi   " + "Mercredi" + "Jeudi   " + "Vendredi" + "Samedi  ";
+                var vmois="Janvier  "+"Fevrier  "+"Mars     "+"Avril    "+"Mai      "+"Juin     "+"Juillet  "+"Aout     "+"Septembre"+"Octobre  "+"Novembre "+"Decembre ";
+                var jour = uneDate.getDay();
+                var mois = uneDate.getMonth();
+                result = vjour.substring(jour*8, jour*8+7)+" "+uneDate.getDate()+" "+ vmois.substring(mois*9, mois*9+8)+" "+uneDate.getFullYear();
+                return result;
+            }
+            
+            var timerID = 0; 
+ 
+            function startClock(form)
+            { 
+                var maintenant = new Date(); 
+                var heures = maintenant.getHours(); 
+                var minutes = maintenant.getMinutes(); 
+                var secondes = maintenant.getSeconds(); 
+                var horaire = ((heures < 10) ? "0" : "") + heures + ((minutes < 10) ? ":0" : ":") + minutes + ((secondes < 10) ? ":0" : ":") + secondes; 
+ 
+                // LANCEMENT DE L'HORLOGE 
+    
+               
+                timerID = setTimeout("startClock()",1000); 
+                
+    
+                document.clock.face.value = horaire; 
+            }
+        -->    
+        </script> 
+
+        <script type="text/javascript" xml:space="preserve"> 
+        <!--
+  
+            function startDate()
+            { 
+                var maintenant = new Date(); 
+                document.write("Nous sommes le " + dateFrancaise(maintenant));
+            }
+            
+        -->
+        </script>
+        
+        <script type="text/javascript" xml:space="preserve">
+        <!--
+        
+        function choix(Option)
+        { 
+            switch(Option)
+            {
+                case 1 :
+                    window.location.href="../../Sujet/TP1.pdf";
+                    break;
+     
+                case 2 :
+                    window.location.href="../../Sujet/TP2.pdf";
+                    break;
+            
+                case 3 :
+                    window.location.href="../../Sujet/TP3.pdf";
+                    break;
+       
+                default:
+                    alert("Votre Choix ?");
+                    break;
+            }
+        }
+        
+        -->    
+        </script> 
+        
+        <script type="text/javascript" xml:space="preserve">
+        <!--
+        
+        function calculer(form)
+        {
+            form.result.value = eval(form.expr.value)
+        } 
+           
+        -->    
+        </script> 
+        
+         <script type="text/javascript">
+        <!--
+ 
+        function VerifySpace(valeur)
+        {
+            if(valeur.indexOf(' ',0) != -1)
+            {
+                alert(" Saisissez une  chaine de caracteres sans espaces.");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+      
+         
+        function VerifyLength(valeur)
+        { 
+            if(valeur.length < 3 || VerifySpace(valeur))
+            { 
+                alert(" Saisissez trois caracteres au minimum."); 
+                return false; 
+            }
+            else
+            { 
+                return true; 
+            } 
+        } 
+
+        function VerifyNumeric(valeur, min, max)
+        { 
+            for( var i=0; i< valeur.length; i++)
+            { 
+                if(isNaN(valeur))
+                {
+                    alert(" Saisissez une valeur numerique."); 
+                    return false; 
+                }  
+            } 
+            
+            var nombre = parseInt (valeur) 
+            
+            if ( (nombre < min) || (nombre > max) )
+            { 
+                alert(" Saisissez un nombre entre 1 et 10."); 
+                return false;
+            } 
+        }
+
+        -->    
+        </script> 
+        
+         
+        <script type="text/javascript">
+        <!--
+        
+        function CreateWindow(Image,Titre,Largeur,Hauteur)
+        {  
+            var htmlpage= " "; 
+            var win_opt= "toolbar=0,location=0,directories=0,status=0,menubar=0,"; 
+            win_opt += "scrollbars=0,resizable=0,copyhistory=0,"; 
+            win_opt += "width=" + Largeur + ",height=" + Hauteur; 
+ 
+            // Definition de l`adresse exacte de l`image 
+            currentLoc= location.href.substring(0,location.href.lastIndexOf('/')+1); 
+            ImageUrl= currentLoc + Image; 
+ 
+            // Creation de la fenetre 
+            NewWindow= window.open(" ","Titre",win_opt); 
+            // Generation du contenu de la page 
+            NewWindow.document.open(); 
+   
+            htmlpage += "<html><head><title>" + Titre + "</title></head><body>"; 
+            htmlpage += "<center><b><font size=+1>" + Titre + "</font></b><hr>"; 
+            htmlpage += "<img hspace=0 vspace=0 width=150 src="+ImageUrl+ ">"; 
+            htmlpage += "<hr><form>" 
+        
+            htmlpage += "<input type='button' value=' Close ' onClick='window.close()'>" 
+            htmlpage += "</form>"; 
+            htmlpage += "</center>"; 
+            htmlpage += "</body></html>"; 
+            NewWindow.document.write(htmlpage); 
+            NewWindow.document.close();
+        }
+
+        -->    
+        </script> 
+        
+        <style type="text/css"> 
+                .objet
+                {
+                    background:black;
+                    color:white;
+                }
+        </style>
+
+    </head> 
+    
+    <body onload="derouler(), startClock()"> 
+ 
+        <h4 class="objet">La hi&eacute;rarchie des objets cr&eacute;&eacute;s par le client</h4>
+        
+        <script type="text/javascript"> 
+        <!--
+       
+            document.forms[0].element[1]
+            document.form1.saisie
+        
+        -->
+        </script>
+        
+        <h4>La listes des objets</h4>
+        
+    
+        <form action="" id="obj">
+                <script type="text/javascript"> 
+                <!--
+        
+                    document.write(show_props(document, 'doc')); 
+                    //document.write(show_props(document.forms[0], 'form1'));            
+
+                -->
+                </script>
+            
+        </form>
+        
+        <h4 class="objet">L'objet document</h4>
+        
+         <div>Un message qui defile ...  </div>
+        
+        <h4>Quelle heure est-il selon vous ?</h4>
+        
+        <script type="text/javascript">
+        <!--
+            startDate();
+        -->
+        </script>
+        
+        <form name="clock" action="" id="clock">
+            <p>
+                Il est :
+                <input type="text" name="face" size="8"/>
+            </p>
+        </form>        
+
+        <h4 class="objet">L'objet form</h4>
+        
+        <h4>Un Index</h4>
+        
+        <form action="" id="choix">
+            <p>Liste des TP :
+            <select onchange="choix(this.selectedIndex)"> 
+                <option selected="selected">Selectionner un document</option> 
+                <option>Sujet de TP1</option> 
+                <option>Sujet de TP2</option>
+                <option>Sujet de TP3</option>
+            </select> 
+            </p>
+        </form>
+        
+        <h4>Une Calculette</h4>
+        
+        <form action="" id="calculette">
+            <p>
+                Entrez une expression : 
+                <input type="text" name="expr" size="15" /> 
+                <input type="button" value="calculer" onclick="calculer(this.form)" /> 
+            <br/>R&eacute;sultat: 
+                <input type="text" name="result" size="15" /> 
+            </p>
+        </form>
+        
+        <h4> V&eacute;rification du contenu d'un formulaire </h4>
+        
+        <p>
+                Les saisies doivent etre suivies de la touche TAB
+        </p>
+        
+        <form action="" id="formulaire" style="background:yellow; width:7cm;" > 
+            
+            <p>
+                Une cha&icirc;ne de caract&egrave;res: <br/>
+                <input style="margin-left:3cm;" onchange="if (! VerifySpace(this.value)) {this.focus();this.select();}" />
+            </p>
+            
+            <p>
+                Au moins trois caract&egrave;res:<br/>
+                <input style="margin-left:3cm;" onchange="if (! VerifyLength(this.value)) {this.focus();this.select();}" />
+            </p>
+                
+            <p>
+                Un nombre entre 1 et 10: <br/>
+                <input style="margin-left:3cm;" onchange="if (! VerifyNumeric(this.value, 1, 10)) {this.focus();this.select();}" />
+            </p>
+            
+        </form> 
+        
+        <h4 class="objet">L'objet window</h4>
+        
+        <h4> Cr&eacute;ation d'une fen&ecirc;tre </h4>
+        
+        <form action="" id="creefenetre"> 
+            <table style="margin-left:auto; margin-right:auto;"> 
+                <tr> 
+                    <td>
+                        <input type="button" value="    Create Window    " onclick="CreateWindow('../../TP1/ex5/moi.jpg','Hulin C&eacute;dric', 300, 330)" /> 
+                    </td>
+                    
+                    <td>
+                        <input type="button" value="    Close Window     " onclick="NewWindow.close()" /> 
+                    </td>
+                </tr>
+            </table> 
+        </form> 
+        
+        <h4 class="objet">L'objet frame</h4>
+        
+        <h4> Utilisation des frames </h4>
+        
+        <form action="" id="frames">
+            <div>
+                <input type="button" value=" Lien " onclick="window.location.href='../ex4/index.html';" /> 
+            </div>
+        </form>
+
+        
+        <p>
+            <a href="../index.html">Top</a><br/>
+        </p>
+        
+        <hr/>
+        
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer">
+                <img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict"/>
+            </a>
+        
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valide !" />
+            </a>
+        </p> 
+        
+    </body>
+</html> 

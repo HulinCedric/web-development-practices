@@ -1,0 +1,39 @@
+#maincenter
+{
+	font-family: "Trebuchet MS", Sans-serif;
+	color: #7D6D4C;
+	border: 1px solid blue;
+	padding: 15px 0px 0px 10px;
+	background: #FFFFF0;
+}
+
+.citation
+{
+	width: 75%;
+	border: 1px solid #0E0C09;
+	padding: 1em 1em 2em 1em;
+	font-weight: bold;
+	background: #F7EBE3;
+}
+
+.ligneauteur
+{
+	padding: 0.1em 1em 1em 1em;
+	width: 75%;
+}
+
+.auteur
+{
+	position: relative;
+	margin-top: -1.2em;
+	background: #F7EBE3;
+	float: left;
+}
+
+.reference
+{
+	position: relative;
+	margin-top: -1.2em;
+	background: #F7EBE3;
+	float: right;
+}

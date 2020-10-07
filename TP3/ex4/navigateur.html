@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    <head> 
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" /> 
+    
+        <title>Fenetre de navigation</title> 
+        
+    </head> 
+    
+    <body> 
+   
+        <form action="" id="frames"> 
+            <table style="margin-left:auto; margin-right:auto;"> 
+                <tr> 
+                    <td>
+                        <input type="button" value="Home" onclick="parent.FDoC.location='../index.html'" /> 
+                    </td>
+                
+                    <td>
+                        <input type="button" value="Pr&eacute;c&eacute;dent" onclick="parent.FDoC.history.back()" /> 
+                    </td>
+                
+                    <td>
+                        <input type="button" value="Suivant" onclick="parent.FDoC.history.forward()" /> 
+                    </td>
+                </tr>
+            </table> 
+        </form>
+                        
+    </body>
+</html> 

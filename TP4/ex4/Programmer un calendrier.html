@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    <head> 
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" />
+        <title>Programmer un calendrier</title>
+		       
+	<script type="text/javascript" src="scripts/calendrier.js"></script> 
+
+		
+        <style type="text/css"> 
+                .objet
+                {
+                    background:black;
+                    color:white;
+                }
+				select, input, table
+				{ 
+					font-family : Verdana;
+					font-size : 10px;
+					color : #000033;
+				}
+				.Titre
+				{ 
+					font-family : Verdana;
+					font-size : 12px;
+					color : #000033;
+				}	
+        </style>
+        
+    </head> 
+    
+    <body> 
+ 
+        <h4 class="objet">Programmer un calendrier</h4>	
+
+			<form name="Cal">
+				<center>
+					<script language="JavaScript" type="text/javascript">
+						/* AFFICHE LES 4 MENUS DEROULANTS PERMETTANT DE
+						SELECTIONNER LE JOUR, LE MOIS ET L'ANNEE
+						**************************************************/
+						DateText = "<select name=\"Date\">"
+						for (d=1; d<32; d++)
+						{
+						DateText += "<option";
+						if (d == TodaysDate) { DateText += " selected='selected'"; }
+						DateText += ">";
+						if (d < 10) { DateText += "0"; }
+						DateText += d + "</option>";
+						}
+						DateText += "</select>";
+						/*************************************************/
+						MonthText = "<select name=\"Month\">"
+						for (m=1; m<13; m++)
+						{
+						MonthText += "<option";
+						if (m == TodaysMonth) { MonthText += " selected='selected'"; }
+						MonthText += ">";
+						MonthText += MonthsList[m] + "</option>";
+						}
+						MonthText += "</select>";
+						/*************************************************/
+						CenturyText = "<select name=\"Century\">"
+						for (c=15; c<25; c++)
+						{
+						CenturyText += "<option";
+						if (c == Math.floor(TodaysYear / 100)) { CenturyText += "  selected='selected'"; }
+						CenturyText += ">" + c + "</option>";
+						}
+						CenturyText += "</select>";
+						/*************************************************/
+						YearText = "<select name=\"Year\">";
+						for (y=0; y<100; y++)
+						{
+						YearText += "<option";
+						if (y == (TodaysYear - Math.floor(TodaysYear / 100) * 100)) { YearText += " selected='selected'"; }
+						YearText += ">";
+						if (y < 10) { YearText += "0"; }
+						YearText += y + "</option>";
+						}
+						YearText += "</select>";
+						/*************************************************/
+						document.write(DateText + MonthText + CenturyText + YearText);
+					</script>
+						<input type="button" value=" OK " style="font-weight: bold" onClick="CheckData()"/>
+							<br />
+							<br />
+						<input type="button" value=" Revenir &agrave; la date courante " style="font-weight: bold" onClick="document.Cal.reset();CheckData()"/>
+							<br />
+							<br />
+					<div id="Calendrier"></div>
+				</center>
+			</form>
+		
+			<script language="JavaScript" type="text/javascript">
+				CheckData()
+			</script>
+		      
+      	<p>
+            <a href="../index.html">Top</a><br/>
+        </p>
+        
+        <hr/>
+        
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer">
+                <img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict"/>
+            </a>
+        
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valide !" />
+            </a>
+        </p> 
+        
+    </body>
+</html> 

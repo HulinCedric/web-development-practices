@@ -1,0 +1,17 @@
+body
+{
+	color: blue;
+	font-family: Arial, Sans-serif;
+}
+
+#top 
+{
+	font-size: large;
+	background: #E0FFFF;
+}
+
+#bottom
+{
+	font-size: small;
+	background: #FFFFE0;
+}

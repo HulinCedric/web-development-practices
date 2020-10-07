@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    <head> 
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" />
+        <title>D&eacute;finir des objets en JavaScript</title>
+
+        
+        <script type="text/javascript">
+        <!--
+         
+        function Personne(nom, age, sexe)
+        { 
+            this.nom = nom; 
+            this.age = age; 
+            this.sexe = sexe;
+            this.presenter = presenter_personne;
+        } 
+        
+        function presenter_personne()
+        { 
+            (this.nom == null || this.age == null || this.sexe == null) ? alert('personne mal renseigner') : 
+            alert(this.nom + " " + this.age + " " + this.sexe);
+        }
+        
+        function Voiture(ma, mo, p)
+        {
+            this.marque=ma;
+            this.modele=mo;
+
+            // le proprietaire est implicitement un "objet" de type Personne !
+            // p sera une instance de Personne
+            
+            this.proprietaire = p;
+            this.presenter= presenter_voiture;
+        }
+        
+        function presenter_voiture()
+        { 
+            (this.marque == null || this.modele == null) ? alert('v\351hicule mal renseigner') : 
+            alert(this.marque + " " + this.modele);
+        }
+
+        var toto= new Personne();
+        var tutute= new Voiture();
+        
+        -->
+        </script>
+
+        
+        <style type="text/css"> 
+                .objet
+                {
+                    background:black;
+                    color:white;
+                }
+        </style>
+        
+    </head> 
+    
+    <body> 
+ 
+        <h4 class="objet">D&eacute;finir des objets en JavaScript</h4>
+        
+        <h4> Fiche d'une personne </h4>
+        
+        <form action="" id="Personnage" style="background-color:red; width:7cm;" > 
+            
+            <p>
+                Nom : <br/>
+                <input style="margin-left:3cm;" onchange="toto.nom= this.value; Automobile.par.value= toto.nom;" />
+            </p>
+            
+            <p>
+                Age :<br/>
+                <input style="margin-left:3cm;" onchange="toto.age= this.value;" />
+            </p>
+                
+            <p>
+                Sexe : <br/>
+                <input style="margin-left:3cm;" onchange="toto.sexe= this.value;" />
+            </p>
+            
+        </form>
+        
+        <h4> Fiche d'un v&eacute;hicule </h4>
+        
+        <form action="" id="Automobile" style="background-color:yellow; width:7cm;" > 
+            <p>
+                Marque du v&eacute;hicule :
+                <input style="margin-left:3cm;" onchange="tutute.marque= this.value;" />
+            </p>
+            
+            <p>
+                Mod&eacute;le du v&eacute;hicule :
+                <input style="margin-left:3cm;" onchange="tutute.modele= this.value;" />
+            </p>
+            
+            <input disabled="disabled" name="par" style="background-color:yellow; border:0; width:2.6cm; color:black;" value=""></input> est &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; 
+            <input type="button" value="Proprietaire" onclick="tutute.proprietaire = toto;"></input>
+            
+        </form> 
+       
+        <h4> Presenter les objets </h4>
+        
+        <form action="" id="presentation" style="background-color:green; width:7cm;" >
+          
+            <p>
+                Presenter le personnage :
+                <input style="margin-left:3cm;" type="button" value="Personnage" onclick="toto.presenter();"></input> 
+            </p>
+            
+            <p>
+                Presenter le v&eacute;hicule :
+                <input style="margin-left:3cm;" type="button" value="Voiture" onclick="tutute.presenter();"></input>
+            </p>
+            
+            <p>
+                Presenter le proprietaire du v&eacute;hicule : 
+                <input style="margin-left:3cm;" type="button" value="Voiture" onclick="(tutute.proprietaire == null) ? alert('pas de proprietaire') : tutute.proprietaire.presenter();"></input>
+            </p>
+            
+        </form>
+      
+
+        <p>
+            <a href="../index.html">Top</a><br/>
+        </p>
+        
+        <hr/>
+        
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer">
+                <img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict"/>
+            </a>
+        
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valide !" />
+            </a>
+        </p> 
+        
+    </body>
+</html> 

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    <head> 
+        <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" /> 
+        <title>Utiliser JavaScript dans HTML</title>
+    </head> 
+    
+    <body> 
+      
+      <h4>Ins&eacute;rer du code JavaScript dans un document html</h4>
+            
+        <p>  
+        Affichage de texte en JavaScript..
+            <script type="text/javascript">
+            <!--                 
+            
+            document.write('<div style="text-align:center; font-weight:bold;">Hello, Net !</div>'); 
+  
+            -->
+            </script>
+        </p>
+        
+        <h4>D&eacute;finire une fonction</h4>
+        
+        <p>
+        D&eacute;finition d'une fonction..
+           
+           <script type="text/javascript">
+           <!--                 
+            // definition de la fonction carre 
+      
+                function carre (n)
+                { 
+                    return n * n ; 
+                } 
+            -->
+            </script>
+        </p>
+        
+        <p>
+        Appel d'une fonction..
+   
+            <script type="text/javascript"> 
+            <!-- 
+                document.write('<div style="text-align:center;"> Le carr&eacute; de 5 est &eacute;gal &agrave; <b>', carre(5),'</b>.</div>'); 
+            -->
+            </script>
+        </p>
+        
+        <h4>G&eacute;rer un &eacute;v&eacute;nement</h4>
+        
+        <form action=""> 
+            <div>
+            Un premier bouton
+                <input type="button" value="Appuyez" onclick="window.alert('Bonjour ..')" />
+            </div>
+        </form>
+        
+        
+        <p>
+            <a href="../index.html">Top</a><br/>
+        </p>
+        
+        <hr/>
+        
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer">
+                <img style="border:0;width:88px;height:31px" src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict"/>
+            </a>
+        
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valide !" />
+            </a>
+        </p> 
+        
+    </body>
+</html> 

@@ -1,0 +1,62 @@
+body   
+{
+    font-family: Tahoma, "Trebuchet MS", verdana;
+    color: #3f3f3f;
+    background-color: white;
+    font-size: 12px;
+    padding: 20px 15% 0 10%;
+    border-top: 1px solid #3f3f3f;
+    border-left: 1px solid #3f3f3f;
+}
+
+h1
+{
+    color: #f49a39;
+    margin-top: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 1.6em;
+    border-bottom: 2px solid #ce8b30;
+}
+
+h2
+{
+    color: #f49a39;
+    margin-top: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 1.4em;
+    text-align: right;
+    border-bottom: 2px solid #ce8b30;
+}
+
+h3
+{
+    color: #f49a39;
+    margin-top: 1.8em;
+    margin-bottom: 0.4em;
+    font-size: 1.2em;
+    border-bottom: 1px solid #ce8b30;
+}
+
+.date
+{
+    text-decoration: underline;
+    font-weight: bold;
+    margin-left: 1.5em;
+    margin-top: 2em;
+    margin-bottom: 0.4em;
+}
+
+.coordonnees
+{
+    position: relative;
+    font-style: italic;
+    margin-left: 18%;
+    margin-top: -14%;
+    float: left;
+}
+
+img
+{
+    margin-left: 1em;
+    border-width: 0;
+}

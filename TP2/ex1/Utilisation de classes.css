@@ -1,0 +1,17 @@
+.corps {
+	background: yellow;
+	margin: 1cm;
+	color: black;
+	font-family: Verdana, Helvetica, Sans-serif;
+}
+
+.important {
+	color: red;
+	font-weight: bold;
+	border: 2px solid blue;
+	background: #ddd;
+	width: 8cm;
+	height: 2.5cm;
+	margin: 1cm;
+	padding: 0.5cm;
+}
